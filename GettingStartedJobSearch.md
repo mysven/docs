@@ -105,7 +105,7 @@ To help you find your way forward, here are some example of use cases:
 * [Phrase search](#Phrase-search)
 * [Searching for a particular job title](#Searching-for-a-particular-job-title)
 * [Searching only within a specific field of work](#Searching-only-within-a-specific-field-of-work)
-* [Filtering employers using organization number](#Filtering-employers-using-organization-number)
+* [Filtering employers using organisation number](#Filtering-employers-using-organisation-number)
 * [Finding jobs near you](#Finding-jobs-near-you)
 * [Negative search](#Negative-search)
 * [Finding Swedish speaking jobs abroad](#Finding-Swedish-speaking-jobs-abroad)
@@ -167,8 +167,8 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?occupation-field=apaJ_2ja_LuF&q=python
 	
-### Filtering employers using organization number
-If you want to list all the jobs with just one employer you can use the swedish organization number from Bolagsverket. For example its possible to take Arbetsförmedlingens number 2021002114 and basically use that as a filter
+### Filtering employers using organisation number
+If you want to list all the jobs with just one employer you can use the swedish organisation number from Bolagsverket. For example its possible to take Arbetsförmedlingens number 2021002114 and basically use that as a filter
 
 Request URL
 	
@@ -179,8 +179,6 @@ The filter makes a preix search as a default, like a wild card search without th
 Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?employer=2&q=java
-
-
 
 
 ### Finding jobs near you
@@ -241,7 +239,7 @@ Request URL to get jobs in Swedish outside Sweden
 	https://jobsearch.api.jobtechdev.se/search?language=zSLA_vw2_FXN&country=-i46j_HmG_v64
 
 
-### Customize the result set
+### Customise the result set
 There's a lot of reasons you might want less fields for your search result set. In this case the idea is a map-based job search that plots needles where the jobs can be found based on a user search. Everything needed is the GPS coordinates for the needle and the id, employer, and headline for the ad so more info can be fetched once the user clicks on the needle. Probably, you also like to know total number of ads.
 In the Swagger GUI it's possible to use the X-fields to define which fields to include in result set. This mask will look like this
 
