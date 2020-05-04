@@ -1,6 +1,6 @@
 # Search API for job ads - getting started
 
-The aim of this text is to walk you through what you're seeing in the [Swagger-GUI](https://jobsearch.api.jobtechdev.se) to give you a bit of orientation on what can be done with the Job Search API. If you are just looking for a way to fetch all ads please use our [Stream API](https://jobtechdev.se/docs/jobstream/getting-started/)
+The aim of this text is to walk you through what you're seeing in the [Swagger-GUI](https://jobsearch.api.jobtechdev.se) to give you a bit of orientation on what can be done with the Job Search API. If you are just looking for a way to fetch all ads please use our [Stream API](https://jobtechdev.se/docs/apis/jobstream/)
 The search API is intended for user search not downloading all job ads. We may invalidate your API Key if you make excessive amounts of calls that don't fit the intended purpose of this API.
 
 A bad practice typically means searching for every job of every region every fifth minute.
@@ -76,7 +76,7 @@ This endpoint returns the logo for a given ad's id number.
 If no logo exists, a 1x1 pixel size white image is returned.
 
 ### Jobtech-Taxonomy 
-If you need help finding the official names for occupations, skills, or geographic locations you will find them in our [Taxonomy API](https://jobtechdev.se/docs/taxonomy/getting-started/)
+If you need help finding the official names for occupations, skills, or geographic locations you will find them in our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/)
 
 ## Results
 The results of your queries will be in [JSON](https://en.wikipedia.org/wiki/JSON) format. We won't attempt to explain this attribute by attribute in this document. Instead we've decided to try to include this in the data model which you can find in our [Swagger-GUI](https://jobsearch.api.jobtechdev.se).
@@ -105,7 +105,7 @@ To help you find your way forward, here are some example of use cases:
 * [Phrase search](#Phrase-search)
 * [Searching for a particular job title](#Searching-for-a-particular-job-title)
 * [Searching only within a specific field of work](#Searching-only-within-a-specific-field-of-work)
-* [Filtering employers using organization number](#Filtering-employers-using-organization-number)
+* [Filtering employers using organisation number](#Filtering-employers-using-organisation-number)
 * [Finding jobs near you](#Finding-jobs-near-you)
 * [Negative search](#Negative-search)
 * [Finding Swedish speaking jobs abroad](#Finding-Swedish-speaking-jobs-abroad)
@@ -142,7 +142,7 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=souschef
 	
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/taxonomy/getting-started/) instead** 
+**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
 Now you can use the conceptId (iugg_Qq9_QHH) in _Open-Search_ to fetch the ads registered with the term "souschef" in the occupation-name field:
 
@@ -159,7 +159,7 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=IT
 
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/taxonomy/getting-started/) instead** 
+**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
 In the response body you’ll find the conceptId (apaJ_2ja_LuF)for the term Data/IT. Use this with the search endpoint to define the field in which you want to get all the open-api. So now I want to combine this with my favorite language without all those snake related jobs ruining my search.
 
@@ -167,8 +167,8 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?occupation-field=apaJ_2ja_LuF&q=python
 	
-### Filtering employers using organization number
-If you want to list all the jobs with just one employer you can use the swedish organization number from Bolagsverket. For example its possible to take Arbetsförmedlingens number 2021002114 and basically use that as a filter
+### Filtering employers using organisation number
+If you want to list all the jobs with just one employer you can use the swedish organisation number from Bolagsverket. For example its possible to take Arbetsförmedlingens number 2021002114 and basically use that as a filter
 
 Request URL
 	
@@ -181,8 +181,6 @@ Request URL
 	https://jobsearch.api.jobtechdev.se/search?employer=2&q=java
 
 
-
-
 ### Finding jobs near you
 You can filter your search on geographical terms picked up from the Taxonomy just the same way you can with occupation-titles and occupation-fields. (Concept_id doesn't work everywhere at the time of writing but you can use the numeral id's, they are very official and way less likely to change as skills and occupations sometimes do)
 If you want to search for jobs in Norway you may free text query the taxonomy for "Norge"
@@ -191,7 +189,7 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=norge
 
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/taxonomy/getting-started/) instead**
+**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead**
 
 And add that parameter conceptId (QJgN_Zge_BzJ) to the country field
 
@@ -232,7 +230,7 @@ Request URLs to get conceptId for Sweden and Swedish
 	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=sverige&type=country
 	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=svenska&type=language
 
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/taxonomy/getting-started/) instead** 
+**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
 As return we get conceptId i46j_HmG_v64 for "Sverige" and conceptId zSLA_vw2_FXN for "Svenska".
 
@@ -241,7 +239,7 @@ Request URL to get jobs in Swedish outside Sweden
 	https://jobsearch.api.jobtechdev.se/search?language=zSLA_vw2_FXN&country=-i46j_HmG_v64
 
 
-### Customize the result set
+### Customise the result set
 There's a lot of reasons you might want less fields for your search result set. In this case the idea is a map-based job search that plots needles where the jobs can be found based on a user search. Everything needed is the GPS coordinates for the needle and the id, employer, and headline for the ad so more info can be fetched once the user clicks on the needle. Probably, you also like to know total number of ads.
 In the Swagger GUI it's possible to use the X-fields to define which fields to include in result set. This mask will look like this
 
