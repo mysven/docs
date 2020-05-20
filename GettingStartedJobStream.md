@@ -50,7 +50,11 @@ Alternatively, you can specify a date range to get all ads (that are currently o
 
 The snapshot endpoint will give you the job ads that are currently open for application. Along with removals and updates of those ads. No parameters are needed.
 	
-	
+### Code examples
+Python code examples can be found in the 'examples' folder in the sokannonser-api repository on Github: 
+https://github.com/JobtechSwe/sokannonser-api/
+
+
 	
 If you’re looking for more advanced search options, please check our [JobSearch API](https://jobtechdev.se/docs/apis/jobsearch/).
 
