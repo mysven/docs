@@ -57,7 +57,7 @@ https://github.com/JobtechSwe/sokannonser-api/tree/develop/examples
 If you’re looking for more advanced search options, please check our [JobSearch API](https://jobtechdev.se/docs/apis/jobsearch/).
 
 ## Results
-The results of your queries will be in [JSON](https://en.wikipedia.org/wiki/JSON) format. We won't attempt to explain the ad objects attribute by attribute in this document. Instead we've decided to try to include this in the data model which you can find in our [Swagger GUI](https://jobsearch.api.jobtechdev.se).
+The results of your queries will be in [JSON](https://en.wikipedia.org/wiki/JSON) format. We won't attempt to explain the ad objects attribute by attribute in this document. Instead we've decided to try to include this in the data model which you can find in our [Swagger GUI](https://jobsearch.api.jobtechdev.se) for JobSearch.
 
 Successful queries will have a response code of 200 and give you a result set that consists of the ad events that happened within the timespan you set. 
 
