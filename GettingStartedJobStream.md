@@ -50,7 +50,7 @@ The snapshot endpoint will give you the job ads that are currently open for appl
 	
 ### Code examples
 Python code examples can be found in the 'examples' folder in the sokannonser-api repository on Github: 
-https://github.com/JobtechSwe/sokannonser-api/
+https://github.com/JobtechSwe/sokannonser-api/tree/develop/examples
 
 
 	
