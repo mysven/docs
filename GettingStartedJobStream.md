@@ -46,7 +46,7 @@ Alternatively, you can specify a date range to get all ads (that are currently o
 ### Snapshot
 /snapshot
 
-The snapshot endpoint will give you the job ads that are currently open for application. Along with removals and updates of those ads. No parameters are needed.
+The snapshot endpoint will give you the job ads that are currently open for application. Without removals, with updates of those ads. No parameters are needed. Output file is about 300 Mb, not reccomended for use in a browser.
 	
 ### Code examples
 Python code examples can be found in the 'examples' folder in the sokannonser-api repository on Github: 
