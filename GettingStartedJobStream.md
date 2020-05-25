@@ -12,9 +12,11 @@ The aim of this text is to walk you through what you're seeing in the [Swagger-U
 
 ## Short introduction
 
-The only endpoint for the ads stream API is:
+The endpoints for the ads stream API are:
 
-* [Stream](#Stream) - returning all active ads that have been updated after a given moment.
+* [Stream](#Stream) - returning all active ads that have been updated after a given moment, or between two timestamps.
+
+* [Snapshot](#Snapshot) - returning all active ads.
 
 The easiest way to try out the API is to go to the [swagger page](https://jobstream.api.jobtechdev.se/).
 But first you need a key which you need to authenticate yourself.
@@ -28,23 +30,38 @@ Below we only show the URLs. If you prefer the curl command, you type it like:
 	curl "{URL}" -H "accept: application/json" -H "api-key: {proper_key}"
 	
 ### Stream 
-/stream?{YYYY-MM-DDTHH:MM:SS}
+/stream
 
 The stream endpoint will give you the job ads that are currently open for application. Along with removals and updates of those ads. 
 	
 You are required to give a certain time point from when you want your ads in the format YYYY-MM-DDTHH:MM:SS, for example 2021-01-11T10:00:00. Rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing this: 
 
-	/stream?date=2020-02-03T10:00:00
-	/stream?date=2020-02-03T10:01:00
-	/stream?date=2020-02-03T10:02:00
+	/stream?date=2020-05-03T10:00:00
+
+Alternatively, you can specify a date range to get all ads (that are currently open for application) within that range: 
+    
+    /stream?date=2020-05-03T10:00:00&updated-before-date=2020-05-04T10:00:00
 
 
+### Snapshot
+/snapshot
+
+The snapshot endpoint will give you the job ads that are currently open for application. Without removals, with updates of those ads. No parameters are needed. Output file is about 300 Mb, not reccomended for use in a browser.
+	
+### Code examples
+Python code examples can be found in the 'examples' folder in the sokannonser-api repository on Github: 
+https://github.com/JobtechSwe/sokannonser-api/tree/develop/examples
+
+
+	
 If you’re looking for more advanced search options, please check our [JobSearch API](https://jobtechdev.se/docs/apis/jobsearch/).
 
 ## Results
 The results of your queries will be in [JSON](https://en.wikipedia.org/wiki/JSON) format. We won't attempt to explain the ad objects attribute by attribute in this document. Instead we've decided to try to include this in the data model which you can find in our [Swagger GUI](https://jobsearch.api.jobtechdev.se) for JobSearch.
 
-Successful queries will have a response code of 200 and give you a result set that consists of the ad events that happened within the timespan you set. The timespan is the time between given time in your call up until the current timestamp when the server receives your call. These events can be of 3 different kinds: New ads, updated ads, and removed ads. New and updated will look the same, the only thing that distinguishes them from each other is that an updated ad has an ID that's already in the database of open ads. 
+Successful queries will have a response code of 200 and give you a result set that consists of the ad events that happened within the timespan you set. 
+
+These events can be of 3 different kinds: New ads, updated ads, and removed ads. New and updated will look the same, the only thing that distinguishes them from each other is that an updated ad has an ID that's already in the database of open ads. 
 
 A removal object looks like this:
 
