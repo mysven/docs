@@ -3,7 +3,7 @@
 ## Getting Started 
  
 ***“What do employers actually want from a job seeker?”***
-Jobad Enrichments API extracts relevant labor market data from job ad texts, making it possible to automatically see what the employers need or request from the job seekers.   
+JobAd Enrichments API extracts relevant labor market data from job ad texts, making it possible to automatically see what the employers need or request from the job seekers.   
 This enables intelligent job matching, labor market analysis, and provides up-to-date job market terminology in a synonym dictionary   
   
  
