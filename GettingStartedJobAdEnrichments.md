@@ -1,12 +1,7 @@
 # JobAd Enrichments API 
  
-Relative
-<img src="img/jae_terms.png"
-     alt="JobAd Enrichments"
-     style="max-width: 100%;" /> 
-     
-Absolute    
-<img src="https://github.com/JobtechSwe/docs/blob/develop/img/jae_terms.png"
+        
+<img src="https://github.com/JobtechSwe/docs/blob/develop/img/jae_terms.png?raw=true"
      alt="JobAd Enrichments"
      style="max-width: 100%;" />      
      
