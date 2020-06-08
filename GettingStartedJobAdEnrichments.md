@@ -1,13 +1,9 @@
 # JobAd Enrichments API 
  
-img-tag  
-<img src="jae_terms.png"
+
+<img src="img/jae_terms.png"
      alt="JobAd Enrichments"
      style="max-width: 100%;" /> 
-     
-
-![JobAd Enrichments API](img/jae_terms.png)
-![JobAd Enrichments API2](jae_terms.png)
  
 ## Getting Started 
  
