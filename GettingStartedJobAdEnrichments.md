@@ -1,8 +1,14 @@
 # JobAd Enrichments API 
  
+        
+<img src="https://github.com/JobtechSwe/docs/blob/master/img/jae_terms.png?raw=true"
+     alt="JobAd Enrichments"
+     style="width: 80%;" />      
+     
+ 
 ## Getting Started 
  
-***“What do employers actually want from a job seeker?”***
+***“What do employers actually want from a job seeker?”***  
 JobAd Enrichments API extracts relevant labor market data from job ad texts, making it possible to automatically see what the employers need or request from the job seekers.   
 This enables intelligent job matching, labor market analysis, and provides up-to-date job market terminology in a synonym dictionary   
   
@@ -36,7 +42,7 @@ This enables intelligent job matching, labor market analysis, and provides up-to
  
 ## Example of use case when using the API 
  
-Makes it possible to improve search results when used in a job search application/engine since it targets the requested competences/skills/job titles from job ads. When knowing if the terms are requested or not, low quality free text search results can be avoided. 
+The API makes it possible to improve search results when it's used in a job search solution, since it targets the requested competences/skills/job titles and place of work from the job ad texts. In other words, the API makes it possible to filter out terms that are mentioned but which are not requested by the employer. When knowing if the terms are requested or not, low quality free text search results can be avoided. 
   
 The functionality in the API has been used in [Platsbanken](https://arbetsformedlingen.se/platsbanken/) since May 2019 to improve the quality of the search results.   
    
@@ -47,19 +53,25 @@ Our API and documentation can be found at [Swagger-UI](https://jobad-enrichments
 
 Brief description of the endpoints:   
  
-**/enrichtextdocuments** 
+**_/enrichtextdocuments_**  
 returns all identified terms in the ad and with a prediction for the term, a decimal between 0.0-1.0 how likely it is   
 that the term is requested by the employer. The closer to 1.0 = Requested by the employer, the closer to 0.0 = Not requested by the employer.    
-**/enrichtextdocumentsbinary** Returns only the requested terms when the prediction exceeds a certain classification threshold.   
+**_/enrichtextdocumentsbinary_**  
+Returns only the requested terms when the prediction exceeds a certain classification threshold.   
 If a job title or a geographical term (place of work) is mentioned in the job ad headline, the job ad will always be enriched with these terms regardless of the result of the automatic predictions.   
-**/synonymdictionary** Returns data and terms for the synonym dictionary that is used in the API when extracting known labor market terms.    
+**_/synonymdictionary_**  
+Returns data and terms for the synonym dictionary that is used in the API when extracting known labor market terms.    
 Makes it possible to connect synonym terms found in the job ad text with synonym terms found in the user search input in a job ad search solution.   
-*Example:* The job ads that are searchable in Platsbanken are continuously enriched through the JobAd Enrichments API with concept terms, for example the concept term ‘sjuksköterska’ (‘nurse’) for job ads containing the job title in singular form or plural form or as a misspelled job title.   
-The end user in Platsbanken writes ‘sjuksköterskor’ (‘nurses’) as a search term, which translates to the searchable concept term ‘sjuksköterska’ in the search query.    
-Results are returned for job ads where the employer seeks a ‘sjuksköterska’ (singular), ‘sjuksköterskor’ (plural) or ‘sjukssköterska’ (misspelled). 
+
+***Example:***  
+The job ads that are searchable in [Platsbanken](https://arbetsformedlingen.se/platsbanken/) are continuously enriched through the JobAd Enrichments API with concept terms, for example the concept term ‘sjuksköterska’ (‘nurse’) for job ads containing the job title in singular form or plural form or as a misspelled job title. 
+
+The end user in Platsbanken writes ‘sjuksköterskor’ (‘nurses’) as a search term, which translates to the searchable concept term ‘sjuksköterska’ in the search query. 
+
+Search results are returned for job ads where the employer seeks a ‘sjuksköterska’ (singular), ‘sjuksköterskor’ (plural) or ‘sjukssköterska’ (misspelled). 
  
 ## Start using the API
-To start using the API today, request your own free API key at [https://apirequest.jobtechdev.se/](https://apirequest.jobtechdev.se/) 
-When you have retrieved your API key, you can try it out in [Swagger-UI](https://jobad-enrichments-api.jobtechdev.se/) 
-For authentication, your API key must be sent as a http header parameter in every API request.
+* To start using the API today, request your own free API key at [https://apirequest.jobtechdev.se/](https://apirequest.jobtechdev.se/)  
+* When you have retrieved your API key, you can try it out in [Swagger-UI](https://jobad-enrichments-api.jobtechdev.se/)  
+* For authentication, your API key must be sent as a http header parameter in every API request. See [Swagger-UI](https://jobad-enrichments-api.jobtechdev.se/) for an example request.
  
