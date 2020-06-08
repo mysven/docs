@@ -53,12 +53,14 @@ Our API and documentation can be found at [Swagger-UI](https://jobad-enrichments
 
 Brief description of the endpoints:   
  
-**/enrichtextdocuments** 
+**_/enrichtextdocuments_**  
 returns all identified terms in the ad and with a prediction for the term, a decimal between 0.0-1.0 how likely it is   
 that the term is requested by the employer. The closer to 1.0 = Requested by the employer, the closer to 0.0 = Not requested by the employer.    
-**/enrichtextdocumentsbinary** Returns only the requested terms when the prediction exceeds a certain classification threshold.   
+**_/enrichtextdocumentsbinary_**  
+Returns only the requested terms when the prediction exceeds a certain classification threshold.   
 If a job title or a geographical term (place of work) is mentioned in the job ad headline, the job ad will always be enriched with these terms regardless of the result of the automatic predictions.   
-**/synonymdictionary** Returns data and terms for the synonym dictionary that is used in the API when extracting known labor market terms.    
+**_/synonymdictionary_**  
+Returns data and terms for the synonym dictionary that is used in the API when extracting known labor market terms.    
 Makes it possible to connect synonym terms found in the job ad text with synonym terms found in the user search input in a job ad search solution.   
 
 ***Example:***  
