@@ -22,7 +22,8 @@ This enables intelligent job matching, labor market analysis, and provides up-to
  
 - Extracts found terms in a Swedish job ad text for competences, soft 
   skills, job titles and place of work and automatically predicts if 
-  they are requested by the employer or not.   In other words, the API 
+  they are requested by the employer or not.  
+  In other words, the API 
   makes it possible to extract important labor market data from raw and 
   unstructured job ad texts. 
 - Returns the found job titles that the job seeker is expected to work 
@@ -31,10 +32,9 @@ This enables intelligent job matching, labor market analysis, and provides up-to
   from the job seeker    
 - Returns the found soft skills/traits that the 
   employer requests from the job seeker    
-- Returns the found places of    work (city names, districts, country 
-  names, names of subway stations    and shuttle stations)       
-- Handles misspelled terms        
-- Handles singular/plural terms       
+- Returns the found places of work (city names, districts, country 
+  names, names of subway stations and shuttle stations)              
+- Handles singular, plural and misspelled terms       
 - Handles extraction of compound words, for example ‘hälsovård’ in 
   ‘hälso- och sjukvård’ 
 - Provides a synonym dictionary with job titles, competences, traits and places of work. The same synonym dictionary is used in the API for term extraction    and translation between synonyms. The dictionary is built with a bottom up approach, and only contains labor market terms that have been found in actual job ads. 
