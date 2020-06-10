@@ -45,6 +45,13 @@ The API makes it possible to improve search results when it's used in a job sear
   
 The functionality in the API has been used in [Platsbanken](https://arbetsformedlingen.se/platsbanken/) since May 2019 to improve the quality of the search results.   
    
+***Example:***  
+The job ads that are searchable in [Platsbanken](https://arbetsformedlingen.se/platsbanken/) are continuously enriched through the JobAd Enrichments API with concept terms, for example the concept term ‘sjuksköterska’ (‘nurse’) for job ads containing the job title in singular form or plural form or as a misspelled job title. 
+
+The end user in [Platsbanken](https://arbetsformedlingen.se/platsbanken/) writes ‘sjuksköterskor’ (‘nurses’) as a search term, which with the help of the synonym dictionary, translates to the searchable concept term ‘sjuksköterska’ in the search query. 
+
+Search results are returned for job ads where the employer seeks a ‘sjuksköterska’ (singular), ‘sjuksköterskor’ (plural) or ‘sjukssköterska’ (misspelled). 
+ 
  
 ## The main endpoints of the API 
  
@@ -62,13 +69,7 @@ If a job title or a geographical term (place of work) is mentioned in the job ad
 Returns data and terms for the synonym dictionary that is used in the API when extracting known labor market terms.    
 Makes it possible to connect synonym terms found in the job ad text with synonym terms found in the user search input in a job ad search solution.   
 
-***Example:***  
-The job ads that are searchable in [Platsbanken](https://arbetsformedlingen.se/platsbanken/) are continuously enriched through the JobAd Enrichments API with concept terms, for example the concept term ‘sjuksköterska’ (‘nurse’) for job ads containing the job title in singular form or plural form or as a misspelled job title. 
 
-The end user in Platsbanken writes ‘sjuksköterskor’ (‘nurses’) as a search term, which translates to the searchable concept term ‘sjuksköterska’ in the search query. 
-
-Search results are returned for job ads where the employer seeks a ‘sjuksköterska’ (singular), ‘sjuksköterskor’ (plural) or ‘sjukssköterska’ (misspelled). 
- 
 ## Start using the API
 * To start using the API today, request your own free API key at [https://apirequest.jobtechdev.se/](https://apirequest.jobtechdev.se/)  
 * When you have retrieved your API key, you can try it out in [Swagger-UI](https://jobad-enrichments-api.jobtechdev.se/)  
