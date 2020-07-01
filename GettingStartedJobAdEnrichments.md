@@ -21,8 +21,8 @@ This enables intelligent job matching, labor market analysis, and provides up-to
 ## What the API does 
  
 - Extracts found terms in a Swedish job ad text for competences, soft 
-  skills, job titles and place of work and automatically predicts if 
-  they are requested by the employer or not.  
+  skills, job titles and place of work and and has a prediction function 
+  that tries to estimate if they are requested by the employer or not.  
   In other words, the API 
   makes it possible to extract important labor market data from raw and 
   unstructured job ad texts. 
