@@ -13,10 +13,37 @@ This enables intelligent job matching, labor market analysis, and provides up-to
   
  
 ## Table of Contents 
+
+* [API Status and Implementation](#API-Status-and-Implementation) 
 * [What the API does](#What-the-API-does) 
 * [Example of use case when using the API](#Example-of-use-case-when-using-the-API) 
 * [The main endpoints of the API](#The-main-endpoints-of-the-API) 
 * [Start using the API (request your API key to get going today)](#Start-using-the-API) 
+  
+## API Status and Implementation
+In order to assist in the development of our API’s we strive for early 
+release in order to encourage early adoption. 
+This gives us the opportunity to learn through feedback and experience. 
+This is a new API and we think it is brilliant that you want to use it. 
+We only ask that you contact us before implementation this API in online-systems. 
+In this regards we will be able to guide and advise you as to its purpose, boundaries and limitations.  
+
+In order to further assist in the understanding of the API, here are some general guidelines.  
+- We have run successful performance tests on the API. The infrastructure for the API scales automatically.
+- In the development of the API we have made certain assumptions with regards to 
+skills, abilities, professional titles and geographical locations of workplaces. 
+We can’t therefore guarantee a general representative definition of these 4 categories. 
+The initial methodology for development was based on highlighting several positive examples 
+that existed in the requested context. We then used theresult to find further examples of 
+similar information types in their given context. We may therefore have missed certain 
+skills, abilities, titles and geographical locations that do not follow this pattern. 
+For the same reason certain fields may bepositively identified that you as a user 
+do not consider to be a skill, ability, title or geographical location.  
+- In other words, we can’t guarantee 100% accuracy of the API at this time. 
+The data-driven model we use may not always converge on all examples we consider to be positive. 
+We are however proud of the ability of what this API is able to achieve and are confident 
+that you as a user will find it of value.  
+- We welcome feedback and insights that can help us improve the ability and performance of the API.  
   
 ## What the API does 
  
