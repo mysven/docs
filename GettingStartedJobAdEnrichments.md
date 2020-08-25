@@ -37,7 +37,7 @@ The initial methodology for development was based on highlighting several positi
 that existed in the requested context. We then used theresult to find further examples of 
 similar information types in their given context. We may therefore have missed certain 
 skills, abilities, titles and geographical locations that do not follow this pattern. 
-For the same reason certain fields may bepositively identified that you as a user 
+For the same reason certain fields may be positively identified that you as a user 
 do not consider to be a skill, ability, title or geographical location.  
 - In other words, we can’t guarantee 100% accuracy of the API at this time. 
 The data-driven model we use may not always converge on all examples we consider to be positive. 
@@ -87,7 +87,7 @@ Our API and documentation can be found at [Swagger-UI](https://jobad-enrichments
 Brief description of the endpoints:   
  
 **_/enrichtextdocuments_**  
-returns all identified terms in the ad and with a prediction for the term, a decimal between 0.0-1.0 how likely it is   
+Returns all identified terms in the ad and with a prediction for the term, a decimal between 0.0-1.0 how likely it is   
 that the term is requested by the employer. The closer to 1.0 = Requested by the employer, the closer to 0.0 = Not requested by the employer.    
 **_/enrichtextdocumentsbinary_**  
 Returns only the requested terms when the prediction exceeds a certain classification threshold.   
