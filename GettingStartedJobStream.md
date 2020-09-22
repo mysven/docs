@@ -36,7 +36,7 @@ The stream endpoint will give you the job ads that are currently open for applic
 	
 You are required to give a certain time point from when you want your ads in the format YYYY-MM-DDTHH:MM:SS, for example 2021-01-11T10:00:00. Rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing this once every minute: 
 
-	/stream?date=2020-05-03T10:00:00
+    	/stream?date=2020-05-03T10:00:00
 
 Alternatively, you can specify a date range to get all ads (that are currently open for application) within that range: 
     
@@ -44,7 +44,7 @@ Alternatively, you can specify a date range to get all ads (that are currently o
 	
 If you want to filter ads for a subset of the jobmarket you can use occupation_id's as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_id's for occupation_field, occupation_group and occupation_name according to the  the JobTech Taxonomy.
 
-	/stream?date=2020-09-22T13%3A11%3A06&location-concept-id=9hXe_F4g_eTG
+    	/stream?date=2020-09-22T13%3A11%3A06&location-concept-id=9hXe_F4g_eTG
 
 
 ### Snapshot
