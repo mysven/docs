@@ -70,9 +70,15 @@ These events can be of 3 different kinds: New ads, updated ads, and removed ads.
 A removal object looks like this:
 
 	{
-	    "id": 8460272,
+	    "id": 8460292,
 	    "removed": true,
 	    "removed_date": "2020-01-13T13:03:26"
+	    "occupation": "eU1q_zvL_9Rx",
+	    "occupation_group": "sq3p_WVv_Fjd",
+	    "occupation_field": "Gazf_2TU_kJw",
+	    "municipality": "cUyN_CsV_HLU",
+	    "region": "9hXe_F4g_eT4",
+	    "country": "i46j_HaG_va4"
 	  }
 
 These are typically grouped together in your result set so if you're request has a larger timespan than a few minutes you may have to scroll to se actual job ads.
