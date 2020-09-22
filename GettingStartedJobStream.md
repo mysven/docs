@@ -25,7 +25,7 @@ But first you need a key which you need to authenticate yourself.
 For this API, you will need to register to get your own API key at [apirequest.jobtechdev.se](https://apirequest.jobtechdev.se)
 
 ## Endpoints
-Below we only show the URLs. If you prefer the curl command, you type it like:
+Below we only show the URI's. If you prefer the curl command, you type it like:
 
 	curl "{URL}" -H "accept: application/json" -H "api-key: {proper_key}"
 	
