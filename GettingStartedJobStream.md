@@ -42,7 +42,7 @@ Alternatively, you can specify a date range to get all ad changes (that are curr
     
     	/stream?date=2020-05-03T10:00:00&updated-before-date=2020-05-04T10:00:00
 	
-If you want to filter ads for a subset of the job market you can use occupation_id's as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_id's for occupation_field, occupation_group and occupation_name according to the  the JobTech Taxonomy.
+If you want to filter ads for a subset of the job market you can use occupation_ids as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_ids for occupation_field, occupation_group and occupation_name according to the  the JobTech Taxonomy.
 
     	/stream?date=2020-09-22T13%3A11%3A06&location-concept-id=9hXe_F4g_eTG
 
