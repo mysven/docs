@@ -34,7 +34,7 @@ Below we only show the URI's. If you prefer the curl command, you type it like:
 
 The stream endpoint gives you all the changes to the dataset of ads that are currently open for application. This means 3 types of events that can appear, new ads, removals of ads and updates of ads. By using the stream endpoint you will be able to quickly update your data set with small and efficient calls and responses. 
 	
-You are required to give a certain time point that determines the starting time from when you want your ads. Sending a time from yesterday, two hours ago, or 5 minute ago will give you all changes between that time stamp and now. The format for the timestamp is YYYY-MM-DDTHH:MM:SS, for example 2021-01-11T10:00:00. The rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing this once every minute: 
+You are required to give a timestamp that determines the starting time from when you want your ads. For example sending a time from yesterday at half past two will give you all changes between that timestamp and now. The format for the timestamp is YYYY-MM-DDTHH:MM:SS, for example 2021-01-11T10:00:00. The rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing this once every minute: 
 
     	/stream?date=2020-05-03T10:00:00
 
