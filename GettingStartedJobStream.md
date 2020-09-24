@@ -50,7 +50,7 @@ If you want to filter ads for a subset of the job market you can use occupation_
 ### Snapshot
 /snapshot
 
-The snapshot endpoint will give you the job ads that are currently open for application. Without removals, without updates of those ads. No parameters are needed. Output file is about 300 Mb, not recommended for use in a browser.
+The snapshot endpoint will give you the job ads that are currently open for application. Without the specific events for removals or updates like in the stream endpoint. No parameters are needed. Output file is about 300 Mb, not recommended for use in a browser.
 	
 ### Code examples
 Python code examples can be found in the 'examples' folder in the sokannonser-api repository on Github: 
