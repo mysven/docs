@@ -41,7 +41,7 @@ You are required to give a timestamp that determines the starting time from when
 Where the time given is always now() minus a minute.
 Alternatively for more exactness, you can specify a date range to get all ad changes (that are currently open for application) within that range: 
     
-    	/stream?date=2020-05-03T10:00:00&updated-before-date=2020-05-04T10:00:00
+    	/stream?date=2020-09-23T10:00:00&updated-before-date=2020-09-24T10:00:00
 	
 If you want to filter ads for a subset of the job market you can use occupation_ids as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_ids for occupation_field, occupation_group and occupation_name according to the JobTech Taxonomy.
 
@@ -73,15 +73,15 @@ These events can be of 3 different kinds: New ads, updated ads, and removed ads.
 A removal object looks like this:
 
 	{
-	    "id": 8460292,
+	    "id": 24233930,
 	    "removed": true,
-	    "removed_date": "2020-01-13T13:03:26"
-	    "occupation": "eU1q_zvL_9Rx",
-	    "occupation_group": "sq3p_WVv_Fjd",
-	    "occupation_field": "Gazf_2TU_kJw",
-	    "municipality": "cUyN_CsV_HLU",
-	    "region": "9hXe_F4g_eT4",
-	    "country": "i46j_HaG_va4"
+	    "removed_date": "2020-09-22T14:57:55"
+	    "occupation": "Y3QA_5pk_uXd",
+	    "occupation_group": "jY19_knH_MJp",
+	    "occupation_field": "NYW6_mP6_vwf",
+	    "municipality": "aYA7_PpG_BqP",
+	    "region": "CifL_Rzy_Mku",
+	    "country": "i46j_HmG_v64"
 	  }
 
 These are typically grouped together in your result set so if you're request has a larger timespan than a few minutes you may have to scroll to se actual job ads.
