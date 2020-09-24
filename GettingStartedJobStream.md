@@ -45,7 +45,7 @@ Alternatively for more exactness, you can specify a date range to get all ad cha
 	
 If you want to filter ads for a subset of the job market you can use occupation_ids as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_ids for occupation_field, occupation_group and occupation_name according to the JobTech Taxonomy.
 
-    	/stream?date=2020-09-22T13%3A11%3A06&location-concept-id=9hXe_F4g_eTG
+    	/stream?date=2020-09-22T13:11:06&occupation-concept-id=MVqp_eS8_kDZ&location-concept-id=oDpK_oZ2_WYt
 	
 Both the geographical and occupational filters are hirearical so the higest level you are filtering for is what you will get. If you give several of the same level you will get the ads corresponding to all of those.
 
