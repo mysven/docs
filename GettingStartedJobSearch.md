@@ -24,7 +24,7 @@ The endpoints for the ads search API are:
 * [logo](#Logo) - returns the logo for an ad.
 
 The easiest way to try out the API is to go to the [Swagger-GUI](https://jobsearch.api.jobtechdev.se/).
-But first you need a key which you need to authenticate yourself.
+But first you need a key to authenticate yourself.
 
 ## Authentication
 For this API, you will need to register your own API key at [apirequest.jobtechdev.se](https://apirequest.jobtechdev.se)
@@ -75,6 +75,12 @@ This endpoint returns the logo for a given ad's id number.
 
 If no logo exists, a 1x1 pixel size white image is returned.
 
+
+### Code examples
+Code examples for accessing the api can be found in the 'getting-started-code-examples' repository on Github: 
+https://github.com/JobtechSwe/getting-started-code-examples
+
+
 ### Jobtech-Taxonomy 
 If you need help finding the official names for occupations, skills, or geographic locations you will find them in our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/)
 
@@ -84,6 +90,7 @@ The results of your queries will be in [JSON](https://en.wikipedia.org/wiki/JSON
 Successful queries will have a response code of 200 and give you a result set that consists of:
 1. Some meta data about your search such as number of hits and the time it took to execute the query and 
 2. The ads that matched your search. 
+
 
 ## Errors
 Unsuccessful queries will have a response code of:
@@ -216,7 +223,7 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?q=unix
 
-But you find that you get a lot of jobs expecting you to work with which you dont want. All that's needed is to use the minus symbol and the word you want to exclude.
+But you find that you get a lot of jobs expecting you to work with which you don't want. All that's needed is to use the minus symbol and the word you want to exclude.
 
 Request URL
 
