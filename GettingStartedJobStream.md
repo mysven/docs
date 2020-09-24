@@ -47,7 +47,7 @@ If you want to filter ads for a subset of the job market you can use occupation_
 
     	/stream?date=2020-09-22T13:11:06&occupation-concept-id=MVqp_eS8_kDZ&location-concept-id=oDpK_oZ2_WYt
 	
-Both the geographical and occupational filters are hirearical so the higest level you are filtering for is what you will get. If you give several of the same level you will get the ads corresponding to all of those.
+Both the geographical and occupational filters are hierarchical so the highest level you are filtering for is what you will get. If you give several of the same level you will get the ads corresponding to all of those.
 
 
 ### Snapshot
