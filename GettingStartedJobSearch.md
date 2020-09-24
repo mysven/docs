@@ -129,7 +129,7 @@ Request URL
 	https://jobsearch.api.jobtechdev.se/search?q=muse*
 
 #### Phrase search
-To search in the ad text for a phrase, use the q paramter and surround the phrase with double quotes.
+To search in the ad text for a phrase, use the q paramter and surround the phrase with double quotes (%22).
 
 Request URL
 
@@ -147,7 +147,7 @@ If you want to be certain that the ad is for a "souschef" - and not just mention
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=souschef
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=souschef
 	
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
@@ -164,7 +164,7 @@ Firstly, use the _Jobtech-Taxonomy_ endpoint to get the Id for Data/IT (occupati
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=IT
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=IT
 
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
@@ -213,7 +213,7 @@ You can also use longitude latitude coordinates and a radius in kilometers if yo
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/search?offset=0&limit=10&position=59.3,17.6&position.radius=10
+	https://jobsearch.api.jobtechdev.se/search?position=59.3,17.6&position.radius=10
 
 
 ### Negative search
@@ -234,8 +234,8 @@ Sometimes a filter can work too broadly and then it's easier to use a negative s
 
 Request URLs to get conceptId for Sweden and Swedish
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=sverige&type=country
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=svenska&type=language
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=sverige&type=country
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=svenska&type=language
 
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
@@ -254,7 +254,7 @@ In the Swagger GUI it's possible to use the X-fields to define which fields to i
 
  This will create an extra header displayed in the curl example in Swagger. So, this example will look like this
 
- 	curl "https://jobsearch.api.jobtechdev.se/search?q=skogsarbetare&offset=0&limit=10" -H "accept: application/json" -H "api-key: <proper_key>" -H "X-Fields: total{value}, hits{id, headline, workplace_address{coordinates}, employer{name}}"
+ 	curl "https://jobsearch.api.jobtechdev.se/search?q=skogsarbetare" -H "accept: application/json" -H "api-key: <proper_key>" -H "X-Fields: total{value}, hits{id, headline, workplace_address{coordinates}, employer{name}}"
 
 
 
