@@ -19,38 +19,45 @@ The endpoints for the ads stream API are:
 * [Snapshot](#Snapshot) - returning all active ads.
 
 The easiest way to try out the API is to go to the [swagger page](https://jobstream.api.jobtechdev.se/).
-But first you need a key which you need to authenticate yourself.
+But first you need a key to authenticate yourself.
 
 ## Authentication
 For this API, you will need to register to get your own API key at [apirequest.jobtechdev.se](https://apirequest.jobtechdev.se)
 
 ## Endpoints
-Below we only show the URLs. If you prefer the curl command, you type it like:
+Below we only show the URI's. If you prefer the curl command, you type it like:
 
 	curl "{URL}" -H "accept: application/json" -H "api-key: {proper_key}"
 	
 ### Stream 
 /stream
 
-The stream endpoint will give you the job ads that are currently open for application. Along with removals and updates of those ads. 
+The stream endpoint gives you all the changes to the dataset of ads that are currently open for application. This means 3 types of events that can appear, new ads, removals of ads and updates of ads. By using the stream endpoint you will be able to quickly update your data set with small and efficient calls and responses. 
 	
-You are required to give a certain time point from when you want your ads in the format YYYY-MM-DDTHH:MM:SS, for example 2021-01-11T10:00:00. Rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing this: 
+You are required to give a timestamp that determines the starting time from when you want your ads. For example sending a time from yesterday at half past two will give you all changes between that timestamp and now. The format for the timestamp is YYYY-MM-DDTHH:MM:SS The rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing a call like this once every minute: 
 
-	/stream?date=2020-05-03T10:00:00
+    	/stream?date=2020-09-24T10:00:00
 
-Alternatively, you can specify a date range to get all ads (that are currently open for application) within that range: 
+Where the time given is always now() minus a minute.
+Alternatively for more exactness, you can specify a date range to get all ad changes (that are currently open for application) within that range: 
     
-    /stream?date=2020-05-03T10:00:00&updated-before-date=2020-05-04T10:00:00
+    	/stream?date=2020-09-23T10:00:00&updated-before-date=2020-09-24T10:00:00
+	
+If you want to filter ads for a subset of the job market you can use occupation_ids as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_ids for occupation_field, occupation_group and occupation_name according to the JobTech Taxonomy.
+
+    	/stream?date=2020-09-22T13:11:06&occupation-concept-id=MVqp_eS8_kDZ&location-concept-id=oDpK_oZ2_WYt
+	
+Both the geographical and occupational filters are hierarchical so the highest level you are filtering for is what you will get. If you give several of the same level you will get the ads corresponding to all of those. If you filter for both occupation and geography you will they will have a AND relationship. Meaning you will only get ads for Copywriter in Kalmar län if you provide those two filters.  
 
 
 ### Snapshot
 /snapshot
 
-The snapshot endpoint will give you the job ads that are currently open for application. Without removals, with updates of those ads. No parameters are needed. Output file is about 300 Mb, not reccomended for use in a browser.
+The snapshot endpoint will give you the job ads that are currently open for application. Without the specific events for removals or updates like in the stream endpoint. No parameters are needed. Output file is about 300 Mb, not recommended for use in a browser.
 	
 ### Code examples
-Python code examples can be found in the 'examples' folder in the sokannonser-api repository on Github: 
-https://github.com/JobtechSwe/sokannonser-api/tree/develop/examples
+Code examples for accessing the api can be found in the 'getting-started-code-examples' repository on Github: 
+https://github.com/JobtechSwe/getting-started-code-examples
 
 
 	
@@ -66,9 +73,15 @@ These events can be of 3 different kinds: New ads, updated ads, and removed ads.
 A removal object looks like this:
 
 	{
-	    "id": 8460272,
+	    "id": 24233930,
 	    "removed": true,
-	    "removed_date": "2020-01-13T13:03:26"
+	    "removed_date": "2020-09-22T14:57:55"
+	    "occupation": "Y3QA_5pk_uXd",
+	    "occupation_group": "jY19_knH_MJp",
+	    "occupation_field": "NYW6_mP6_vwf",
+	    "municipality": "aYA7_PpG_BqP",
+	    "region": "CifL_Rzy_Mku",
+	    "country": "i46j_HmG_v64"
 	  }
 
 These are typically grouped together in your result set so if you're request has a larger timespan than a few minutes you may have to scroll to se actual job ads.

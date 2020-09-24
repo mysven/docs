@@ -24,7 +24,7 @@ The endpoints for the ads search API are:
 * [logo](#Logo) - returns the logo for an ad.
 
 The easiest way to try out the API is to go to the [Swagger-GUI](https://jobsearch.api.jobtechdev.se/).
-But first you need a key which you need to authenticate yourself.
+But first you need a key to authenticate yourself.
 
 ## Authentication
 For this API, you will need to register your own API key at [apirequest.jobtechdev.se](https://apirequest.jobtechdev.se)
@@ -75,6 +75,12 @@ This endpoint returns the logo for a given ad's id number.
 
 If no logo exists, a 1x1 pixel size white image is returned.
 
+
+### Code examples
+Code examples for accessing the api can be found in the 'getting-started-code-examples' repository on Github: 
+https://github.com/JobtechSwe/getting-started-code-examples
+
+
 ### Jobtech-Taxonomy 
 If you need help finding the official names for occupations, skills, or geographic locations you will find them in our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/)
 
@@ -84,6 +90,7 @@ The results of your queries will be in [JSON](https://en.wikipedia.org/wiki/JSON
 Successful queries will have a response code of 200 and give you a result set that consists of:
 1. Some meta data about your search such as number of hits and the time it took to execute the query and 
 2. The ads that matched your search. 
+
 
 ## Errors
 Unsuccessful queries will have a response code of:
@@ -122,7 +129,7 @@ Request URL
 	https://jobsearch.api.jobtechdev.se/search?q=muse*
 
 #### Phrase search
-To search in the ad text for a phrase, use the q paramter and surround the phrase with double quotes.
+To search in the ad text for a phrase, use the q paramter and surround the phrase with double quotes (%22).
 
 Request URL
 
@@ -140,7 +147,7 @@ If you want to be certain that the ad is for a "souschef" - and not just mention
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=souschef
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=souschef
 	
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
@@ -157,7 +164,7 @@ Firstly, use the _Jobtech-Taxonomy_ endpoint to get the Id for Data/IT (occupati
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=IT
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=IT
 
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
@@ -187,7 +194,7 @@ If you want to search for jobs in Norway you may free text query the taxonomy fo
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=norge
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=norge
 
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead**
 
@@ -202,11 +209,11 @@ If I make a query which includes 2 different geographical filters the most local
 	https://jobsearch.api.jobtechdev.se/search?municipality=tfRE_hXa_eq7&region=9hXe_F4g_eTG&q=l%C3%A4rare
 
 
-You can also use longitude latitude coordinates and a radius in kilometers if you want.
+You can also use latitude, longitude coordinates and a radius in kilometers if you want.
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/search?offset=0&limit=10&position=59.3,17.6&position.radius=10
+	https://jobsearch.api.jobtechdev.se/search?position=59.3,17.6&position.radius=10
 
 
 ### Negative search
@@ -216,7 +223,7 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?q=unix
 
-But you find that you get a lot of jobs expecting you to work with which you dont want. All that's needed is to use the minus symbol and the word you want to exclude.
+But you find that you get a lot of jobs expecting you to work with which you don't want. All that's needed is to use the minus symbol and the word you want to exclude.
 
 Request URL
 
@@ -227,8 +234,8 @@ Sometimes a filter can work too broadly and then it's easier to use a negative s
 
 Request URLs to get conceptId for Sweden and Swedish
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=sverige&type=country
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=svenska&type=language
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=sverige&type=country
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=svenska&type=language
 
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
@@ -247,7 +254,7 @@ In the Swagger GUI it's possible to use the X-fields to define which fields to i
 
  This will create an extra header displayed in the curl example in Swagger. So, this example will look like this
 
- 	curl "https://jobsearch.api.jobtechdev.se/search?q=skogsarbetare&offset=0&limit=10" -H "accept: application/json" -H "api-key: <proper_key>" -H "X-Fields: total{value}, hits{id, headline, workplace_address{coordinates}, employer{name}}"
+ 	curl "https://jobsearch.api.jobtechdev.se/search?q=skogsarbetare" -H "accept: application/json" -H "api-key: <proper_key>" -H "X-Fields: total{value}, hits{id, headline, workplace_address{coordinates}, employer{name}}"
 
 
 
