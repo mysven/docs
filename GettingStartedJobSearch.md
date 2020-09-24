@@ -194,7 +194,7 @@ If you want to search for jobs in Norway you may free text query the taxonomy fo
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?offset=0&limit=10&q=norge
+	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=norge
 
 **NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead**
 
@@ -209,7 +209,7 @@ If I make a query which includes 2 different geographical filters the most local
 	https://jobsearch.api.jobtechdev.se/search?municipality=tfRE_hXa_eq7&region=9hXe_F4g_eTG&q=l%C3%A4rare
 
 
-You can also use longitude latitude coordinates and a radius in kilometers if you want.
+You can also use latitude, longitude coordinates and a radius in kilometers if you want.
 
 Request URL
 
