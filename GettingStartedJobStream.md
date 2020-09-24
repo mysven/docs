@@ -19,7 +19,7 @@ The endpoints for the ads stream API are:
 * [Snapshot](#Snapshot) - returning all active ads.
 
 The easiest way to try out the API is to go to the [swagger page](https://jobstream.api.jobtechdev.se/).
-But first you need an API key with which to authenticate yourself.
+But first you need a key to authenticate yourself.
 
 ## Authentication
 For this API, you will need to register to get your own API key at [apirequest.jobtechdev.se](https://apirequest.jobtechdev.se)
