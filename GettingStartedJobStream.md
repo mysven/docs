@@ -34,17 +34,20 @@ Below we only show the URI's. If you prefer the curl command, you type it like:
 
 The stream endpoint gives you all the changes to the dataset of ads that are currently open for application. This means 3 types of events that can appear, new ads, removals of ads and updates of ads. By using the stream endpoint you will be able to quickly update your data set with small and efficient calls and responses. 
 	
-You are required to give a timestamp that determines the starting time from when you want your ads. For example sending a time from yesterday at half past two will give you all changes between that timestamp and now. The format for the timestamp is YYYY-MM-DDTHH:MM:SS, for example 2021-01-11T10:00:00. The rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing this once every minute: 
+You are required to give a timestamp that determines the starting time from when you want your ads. For example sending a time from yesterday at half past two will give you all changes between that timestamp and now. The format for the timestamp is YYYY-MM-DDTHH:MM:SS The rate limit is one request per minute. An organisation that wants to keep up a realtime copy of all the ads from Arbetsformedlingen would have their app doing a call like this once every minute: 
 
-    	/stream?date=2020-05-03T10:00:00
+    	/stream?date=2020-09-24T10:00:00
 
-Alternatively, you can specify a date range to get all ad changes (that are currently open for application) within that range: 
+Where the time given is always now() minus a minute.
+Alternatively for more exactness, you can specify a date range to get all ad changes (that are currently open for application) within that range: 
     
     	/stream?date=2020-05-03T10:00:00&updated-before-date=2020-05-04T10:00:00
 	
-If you want to filter ads for a subset of the job market you can use occupation_ids as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_ids for occupation_field, occupation_group and occupation_name according to the  the JobTech Taxonomy.
+If you want to filter ads for a subset of the job market you can use occupation_ids as filters. This means you can filter your results for geographical areas: country, region (län), municipality (kommun). You can also filter using concept_ids for occupation_field, occupation_group and occupation_name according to the JobTech Taxonomy.
 
     	/stream?date=2020-09-22T13%3A11%3A06&location-concept-id=9hXe_F4g_eTG
+	
+Both the geographical and occupational filters are hirearical so the higest level you are filtering for is what you will get. If you give several of the same level you will get the ads corresponding to all of those.
 
 
 ### Snapshot
