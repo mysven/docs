@@ -43,7 +43,7 @@ The API is meant for searching, we want to offer you the possibility to just bui
 	https://jobsearch.api.jobtechdev.se/search?q=Flen
 	
 This means you don't need to worry about how to build an advanced logic to help the users finding the most relevant ads for, let's say, Flen. The search engine will do this for you.
-If you want to narrow down the search result in other ways than the free query offers, you can use the available search filters. Some of the filters need id-keys as input for searching structured data. The id-keys can be found at /taxonomy/search these will help you get sharper hits for structured data. We will always work on improving the hits for free queries hoping you'll have less and less use for filtering.
+If you want to narrow down the search result in other ways than the free query offers, you can use the available search filters. Some of the filters need id-keys as input for searching structured data. The ids can be found in the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/). These ids will help you get sharper hits for structured data. We will always work on improving the hits for free queries hoping you'll have less and less use for filtering.
 
 ### Typeahead
 /complete?q={typed string}
@@ -53,7 +53,7 @@ If you want to help your end users with term suggestions you can use the typeahe
 	https://jobsearch.api.jobtechdev.se/complete?q=stor
 ... you'll get storkök, storhushåll, storesupport, and storage as they are the most common terms starting with "stor*" in ads.
 
-If you request
+If you have a trailing space in your request
 
 	https://jobsearch.api.jobtechdev.se/complete?q=storage%20s
 
@@ -122,36 +122,32 @@ To help you find your way forward, here are some example of use cases:
 
 
 #### Searching using Wildcard
-For some terms the easiet way to find everything you want is through a wildcard search. An exemple from a user requesting this kind of search was for museum jobs where both searches for "museum" and the various job titles starting with "musei" would be  relevant hits which the information structure currently dont merge very well. From version 1.8.0
+For some terms the easiest way to find everything you want is through a wildcard search. An example from a user requesting this kind of search was for museum jobs where both searches for "museum" and the various job titles starting with "musei" would be  relevant hits which the information structure currently dont merge very well. From version 1.8.0
 
 Request URL
 	
 	https://jobsearch.api.jobtechdev.se/search?q=muse*
 
 #### Phrase search
-To search in the ad text for a phrase, use the q paramter and surround the phrase with double quotes (%22).
+To search in the ad text for a phrase, use the q parameter and surround the phrase with double quotes (%22).
 
 Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?q=%22search%20for%20this%20phrase%22
 
 #### Searching for a particular job title
-The easiest way to get the ads that contain a specific word like a job title is to use a free text query (q) with the _Open-Search_ endpoint. This will give you ads with the specified word in either headline, ad description or place of work.
+The easiest way to get the ads that contain a specific word like a job title is to use a free text query (q) with the _search_ endpoint. This will give you ads with the specified word in either headline, ad description or place of work.
 
 Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?q=souschef
 
 
-If you want to be certain that the ad is for a "souschef" - and not just mentions a "souschef" - you can use the occupation ID in the field "occupation". If the ad has been registered by the recruiter with the occupation field set to "souschef", the ad will show up in this search. To do this query you use both the _Jobtech-Taxonomy_ endpoint and the _Open-Search_ endpoint. First of all, you need to find the occupation ID for "souschef" by text searching (q) in _Jobtech Taxonomy_ for the term in the right category (occupation-name).
-
-Request URL
-
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=souschef
+If you want to be certain that the ad is for a "souschef" - and not just mentions a "souschef" - you can use the occupation ID in the field "occupation". If the ad has been registered by the recruiter with the occupation field set to "souschef", the ad will show up in this search. To do this query you use both the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/)  and the _search_ endpoint. First of all, you need to find the occupation ID for "souschef" in the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/)  for the term in the right category (occupation-name).
 	
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
+**NB! the old endpoint (~~jobsearch.api.jobtechdev.se/taxonomy/~~) is deprecated and will be removed. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
 
-Now you can use the conceptId (iugg_Qq9_QHH) in _Open-Search_ to fetch the ads registered with the term "souschef" in the occupation-name field:
+Now you can use the conceptId (iugg_Qq9_QHH) in _search_ to fetch the ads registered with the term "souschef" in the occupation-name field:
 
 Request URL
 	
@@ -160,19 +156,18 @@ Request URL
 This will give a smaller result set with a higher certainty of actually being for a "souschef", however the result set will likely miss a few relevant ads since the occupation-name field isn't always set by employers. You should find that a larger set is more useful since there are multiple sorting factors working to show the most relevant hits first. We're also working to always improve the API in regards to unstructured data.
 
 ### Searching only within a specific field of work
-Firstly, use the _Jobtech-Taxonomy_ endpoint to get the Id for Data/IT (occupation field). You'll then make a free text search on the term "IT" narrowing down the search to occupation-field
+Firstly, use the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) to get the Id for Data/IT (occupation field). You'll then make a free text search on the term "IT" narrowing down the search to occupation-field
 
-Request URL
-
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=IT
-
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
-
-In the response body you’ll find the conceptId (apaJ_2ja_LuF)for the term Data/IT. Use this with the search endpoint to define the field in which you want to get all the open-api. So now I want to combine this with my favorite language without all those snake related jobs ruining my search.
+In the response body you’ll find the conceptId (apaJ_2ja_LuF)for the term Data/IT. Use this with the search endpoint to define the field in which you want to get. So now I want to combine this with my favorite programming language without all those snake related jobs ruining my search.
 
 Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?occupation-field=apaJ_2ja_LuF&q=python
+	
+In a similar way, you can use the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) to find conceptIds for the parameters _occupation-group_ and _occupation-collection_
+
+_occupation-collection_ can be used in combination with _occupation-name_, _occupation-field_ and _occupation-group_ and the search will show ads that are in ALL (AND condition between parameters)
+
 	
 ### Filtering employers using organisation number
 If you want to list all the jobs with just one employer you can use the swedish organisation number from Bolagsverket. For example its possible to take Arbetsförmedlingens number 2021002114 and basically use that as a filter
@@ -190,13 +185,7 @@ Request URL
 
 ### Finding jobs near you
 You can filter your search on geographical terms picked up from the Taxonomy just the same way you can with occupation-titles and occupation-fields. (Concept_id doesn't work everywhere at the time of writing but you can use the numeral id's, they are very official and way less likely to change as skills and occupations sometimes do)
-If you want to search for jobs in Norway you may free text query the taxonomy for "Norge"
-
-Request URL
-
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=norge
-
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead**
+If you want to search for jobs in Norway you can find the conceptId for "Norge" in the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) 
 
 And add that parameter conceptId (QJgN_Zge_BzJ) to the country field
 
@@ -230,14 +219,7 @@ Request URL
 	https://jobsearch.api.jobtechdev.se/search?q=unix%20-linux
 
 ### Finding Swedish speaking jobs abroad
-Sometimes a filter can work too broadly and then it's easier to use a negative search to remove specific results you don't want. In this case we will show you how to filter out all the jobs in Sweden. Rather than adding a minus Sweden in the q field "-sverige" you can use the country code and the country field in the search. So first you get the country code for "Sverige" from the taxonomy endpoint.
-
-Request URLs to get conceptId for Sweden and Swedish
-
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=sverige&type=country
-	https://jobsearch.api.jobtechdev.se/taxonomy/search?q=svenska&type=language
-
-**NB! this endpoint is deprecated and will be terminated by end of 2020. Use our [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) instead** 
+Sometimes a filter can work too broadly and then it's easier to use a negative search to remove specific results you don't want. In this case we will show you how to filter out all the jobs in Sweden. Rather than adding a minus Sweden in the q field "-sverige" you can use the country code and the country field in the search. So first you get the country code for "Sverige" from the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) .
 
 As return we get conceptId i46j_HmG_v64 for "Sverige" and conceptId zSLA_vw2_FXN for "Svenska".
 
@@ -263,7 +245,7 @@ A very common use case is COLLECT ALL THE ADS. We don't want you to use the sear
 
 
 ### Simple freetext search
-To disable the smart search features of the q-field, the header `x-feature-disable-smart-freetext` to `true`. The result will be that the q-field will work like a simple text search in the ads' header and description fields.
+To disable the smart search features of the q-field, set the header `x-feature-disable-smart-freetext` to `true`. The result will be that the q-field will work like a simple text search in the ads' header and description fields.
 
 
 # Whats next
