@@ -129,7 +129,7 @@ Request URL
 	https://jobsearch.api.jobtechdev.se/search?q=muse*
 
 #### Phrase search
-To search in the ad text for a phrase, use the q parameter and surround the phrase with double quotes (%22).
+To search in the ad text for a phrase, use the q parameter and surround the phrase with double quotes "this phrase". For a call you'll need to transform " to the HTML code %22.
 
 Request URL
 
@@ -212,7 +212,7 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?q=unix
 
-But you find that you get a lot of jobs expecting you to work with which you don't want. All that's needed is to use the minus symbol and the word you want to exclude.
+But you find that you get a lot of jobs expecting you to work with Linux which you don't want. All that's needed is to use the minus symbol and the word you want to exclude.
 
 Request URL
 
