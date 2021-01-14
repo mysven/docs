@@ -10,7 +10,7 @@ Texten har anonymiserats där innehåll som namn, telefonnummer och e-postadress
 [Dashboard application](http://historik.azurewebsites.net/) (bara 2006-2016) med ett API för grundläggande statistik och frågor ([source](https://github.com/simonbe/afhistorik)).
 
 ## Data format
-JSON. Namngivning av attribut för annonsobjekt följer namngivningen som används i[JobStream API](https://jobtechdev.se/docs/apis/jobstream/). 
+JSON. Namngivning av attribut för annonsobjekt följer namngivningen som används i [JobStream API](https://jobtechdev.se/docs/apis/jobstream/). 
 Senare års annonsobjekt innehåller fler attribut än tidigare. Värden för attribut som inte finns är null.
 
 ## Ladda ner
